@@ -10,9 +10,9 @@ export const Nabvar = () => {
     }
 
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-neutral-900 p-6 ">
+        <nav className="flex items-center justify-between flex-wrap bg-neutral-900 p-6 fixed top-0 w-full">
             <div className="flex items-center flex-shrink-0 mr-6">
-                <img src={logo} className=" h-9 w-9 mr-2" alt="logo" />
+                <img src={logo} className=" h-8 w-8 mr-2" alt="logo" />
                 <span className="text-2xl tracking-tight font-extrabold text-slate-200">Pokedex</span>
             </div>
             <div className="block lg:hidden">

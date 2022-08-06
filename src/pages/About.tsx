@@ -1,6 +1,6 @@
 export const About = () => {
   return (
-    <section>
+    <section className='pt-20'>
         About
     </section>
   )

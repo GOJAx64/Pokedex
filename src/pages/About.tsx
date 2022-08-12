@@ -1,5 +1,4 @@
-import { Footer } from '../components/Footer'
-import { HorizontalCard } from '../components/HorizontalCard';
+import { Footer, HorizontalCard } from '../components';
 
 import jest from '../assets/jest.svg';
 import react from '../assets/react.svg';

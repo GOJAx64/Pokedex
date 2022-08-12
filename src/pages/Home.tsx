@@ -1,6 +1,5 @@
+import { Card, Footer } from '../components';
 import pokedex from '../assets/pokedex_2.webp';
-import { Card } from '../components/Card';
-import { Footer } from '../components/Footer';
 
 export const Home = () => {
   return (

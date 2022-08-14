@@ -1,72 +1,50 @@
 import { useEffect, useState } from 'react';
-import { getAllPokemons } from '../helpers/getAllPokemons';
-import { getPokemonByIdOrName } from '../helpers/getPokemonByIdOrName';
+import { getAllPokemons, getPokemonByUrl } from '../helpers';
 
-// interface type{
-//   type: string;
-//   url:  string;
-// }
-
-// interface Pokemon {
-//   name:   string; 
-//   img:    string;
-//   typesCleaned: [type];
-// }
-
-// const initialPokemon:Pokemon = {
-//   name: 'none', 
-//   img: 'none', 
-//   typesCleaned: [{
-//     type: 'none',
-//     url: 'none'
-//   }]
-// }
-
-interface PropsData {
-  next:     string | undefined;
-  previous: string | undefined;
-  urls:     string | undefined;
+//TODO: Define interface
+interface Pokemon {
+   name:string;
+   sprites: {
+    front_default: string;
+   };
 }
 
-const initialState:PropsData = {
-  next:     undefined,
-  previous: undefined,
-  urls:     undefined
+interface Result {
+  name: string;
+  url:  string;
 }
+
+const initialStatePokemons:Pokemon[] = []
 
 export const Pokemons = () => {
-  
-  const [{next, previous, urls}, setData] = useState(initialState);
-  const [pokemons, setPokemons] = useState([]);
+  const [pokemons, setPokemons] = useState(initialStatePokemons);
   const [isLoading, setIsLoading] = useState(true);
 
   const getData = async() => {
-    const {next, previous, urls} = await getAllPokemons();
-    setData({next, previous, urls});
+    const data = await getAllPokemons();
+
+    const promises = data?.results.map( async(pokemon:Result) => 
+      await getPokemonByUrl(pokemon.url) 
+    );
+    
+    const pokemons:Pokemon[] = await Promise.all(promises);
+    setPokemons(pokemons);
   }
 
   useEffect(() => {
     getData();
   }, []);
 
-
   return (
     <section className='pt-20'>
-      {/* {
-        data?.map( (pokemon:Pokemon, index) => (
+      {
+        pokemons.map( (pokemon, index) => (
           <div key={index}>
             <h1>{pokemon.name}</h1>
-            <img src={ pokemon.img } alt={ pokemon.name } className=''/>
+            <img src={ pokemon.sprites.front_default } alt={ pokemon.name } className=''/>
           </div>
         ))
-      } */}
-
-      {/* {
-        pokemon.typesCleaned.map( (t, index) => 
-          <p key={ index }>{ t.type }</p>
-        ) 
-      } */}
-    
+      }
     </section>
   )
 }

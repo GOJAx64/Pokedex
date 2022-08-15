@@ -1,32 +1,10 @@
-import { useEffect, useState } from 'react';
-
-import { Card, Footer } from '../components';
-import { getRandomPokemon, getRandomIds } from '../helpers';
-import { PokeAPIResponsePokemon  } from '../interfaces';
-
+import { Footer, GridPokemons } from '../components';
+import { useFetchRandomPokemons } from '../hooks';
 import pokedex from '../assets/pokedex_2.webp';
-
-const initialStatePokemons:PokeAPIResponsePokemon[] = []
 
 export const Home = () => {
 
-  const [pokemons, setPokemons] = useState(initialStatePokemons);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const getData = async() => {
-    const ids = getRandomIds();
-
-    const promises = ids.map( async(id:number) => 
-      await getRandomPokemon(id) 
-    );
-    
-    const pokemons:PokeAPIResponsePokemon[] = await Promise.all(promises);
-    setPokemons(pokemons);
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const { pokemons, isLoading } = useFetchRandomPokemons();
 
   return (
     <section className="bg-slate-300 pt-20">
@@ -44,15 +22,8 @@ export const Home = () => {
           <div className='py-5 bg-neutral-900 text-center'>
             <h1 className="text-2xl font-extrabold tracking-tight md:text-4xl text-slate-200">Random Pokémons</h1>
           </div>
-          <div className='sm:mx-9 mt-6 pb-8 text-center'>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-              {
-                pokemons.map( (pokemon) => 
-                  <Card key={ pokemon.id } pokemon={ pokemon }/>
-                )
-              } 
-            </div>
-          </div>
+          {/* { isLoading && <h2>Loading...</h2> } */}
+          <GridPokemons pokemons={ pokemons }/>
         </div>
         <Footer/>
     </section>

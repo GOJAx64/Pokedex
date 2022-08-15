@@ -1,7 +1,33 @@
+import { useEffect, useState } from 'react';
+
 import { Card, Footer } from '../components';
+import { getRandomPokemon, getRandomIds } from '../helpers';
+import { PokeAPIResponsePokemon  } from '../interfaces';
+
 import pokedex from '../assets/pokedex_2.webp';
 
+const initialStatePokemons:PokeAPIResponsePokemon[] = []
+
 export const Home = () => {
+
+  const [pokemons, setPokemons] = useState(initialStatePokemons);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getData = async() => {
+    const ids = getRandomIds();
+
+    const promises = ids.map( async(id:number) => 
+      await getRandomPokemon(id) 
+    );
+    
+    const pokemons:PokeAPIResponsePokemon[] = await Promise.all(promises);
+    setPokemons(pokemons);
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <section className="bg-slate-300 pt-20">
         <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
@@ -14,17 +40,17 @@ export const Home = () => {
                 <img src={pokedex} className=" h-74 w-96 lg:ml-8" alt="pokedex" />
             </div>                
         </div>
-        <div className='bg-slate-300' id="">
+        <div className='bg-slate-300'>
           <div className='py-5 bg-neutral-900 text-center'>
             <h1 className="text-2xl font-extrabold tracking-tight md:text-4xl text-slate-200">Random Pokémons</h1>
           </div>
-          <div className='container mx-auto mt-1 pb-12 text-center'>
-            <div className="grid grid-cols-2 sm:grid-cols-4 mx-2 mt-6 gap-4 sm:mx-4 lg:grid-cols-5 lg:gap-6 lg:mx-0">
-                <Card key={1} />
-                <Card key={2} />
-                <Card key={3} />
-                <Card key={4} />
-                <Card key={5} />
+          <div className='sm:mx-9 mt-6 pb-8 text-center'>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+              {
+                pokemons.map( (pokemon) => 
+                  <Card key={ pokemon.id } pokemon={ pokemon }/>
+                )
+              } 
             </div>
           </div>
         </div>

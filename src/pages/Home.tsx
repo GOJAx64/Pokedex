@@ -1,4 +1,4 @@
-import { Footer, GridPokemons } from '../components';
+import { Footer, GridPokemons, Loading } from '../components';
 import { useFetchRandomPokemons } from '../hooks';
 import pokedex from '../assets/pokedex_2.webp';
 
@@ -22,8 +22,7 @@ export const Home = () => {
           <div className='py-5 bg-neutral-900 text-center'>
             <h1 className="text-2xl font-extrabold tracking-tight md:text-4xl text-slate-200">Random Pokémons</h1>
           </div>
-          {/* { isLoading && <h2>Loading...</h2> } */}
-          <GridPokemons pokemons={ pokemons }/>
+          { isLoading ? <Loading/> : <GridPokemons pokemons={ pokemons } />}
         </div>
         <Footer/>
     </section>

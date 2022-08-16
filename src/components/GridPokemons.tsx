@@ -1,4 +1,4 @@
-import { GridPokemonsProps } from '../interfaces/grid-pokemon'
+import { GridPokemonsProps } from '../interfaces'
 import { Card } from '../components';
 
 export const GridPokemons = ( { pokemons }:GridPokemonsProps) => {

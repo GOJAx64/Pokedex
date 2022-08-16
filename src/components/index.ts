@@ -4,3 +4,5 @@ export * from './HorizontalCard';
 export * from './InputSearch';
 export * from './Nabvar';
 export * from './GridPokemons';
+export * from './Loading';
+export * from './PokemonData';

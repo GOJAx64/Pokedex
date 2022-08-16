@@ -1,4 +1,4 @@
-import { Footer, GridPokemons, InputSearch } from '../components';
+import { Footer, GridPokemons, InputSearch, Loading } from '../components';
 import { useFetchAllPokemons } from '../hooks';
 
 export const Pokemons = () => {
@@ -8,6 +8,7 @@ export const Pokemons = () => {
   return (
     <section className='pt-20 bg-slate-300'>
       {/* <InputSearch/> */}
+      { isLoading && <Loading/> }
       <GridPokemons pokemons={ pokemons }/>
       <Footer/>
     </section>

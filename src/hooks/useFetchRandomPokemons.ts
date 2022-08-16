@@ -18,6 +18,7 @@ export const useFetchRandomPokemons = () => {
         
         const pokemons:PokeAPIResponsePokemon[] = await Promise.all(promises);
         setPokemons(pokemons);
+        setIsLoading(false);
     }
 
     useEffect(() => {

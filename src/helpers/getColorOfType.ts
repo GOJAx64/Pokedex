@@ -1,27 +1,42 @@
-export const getColorOfType = ( type:string ) => {
-    let color = '';
+interface propsColors {
+    bug:      string;
+    dark:     string;
+    dragon:   string;
+    electric: string;
+    fairy:    string;
+    fighting: string;
+    fire:     string;
+    flying:   string;
+    ghost:    string;
+    grass:    string;
+    ground:   string;
+    ice:      string;
+    normal:   string;
+    poison:   string;
+    psychic:  string;
+    rock:     string;
+    steel:    string;
+    water:    string;
 
-    switch(type) {
-        case 'bug':      color = 'lime-600';    break;
-        case 'dark':     color = 'neutral-800'; break;
-        case 'dragon':   color = 'purple-500';  break;
-        case 'electric': color = 'orange-600';  break;
-        case 'fairy':    color = 'pink-200';    break;
-        case 'fighting': color = 'amber-500';   break;
-        case 'fire':     color = 'red-500';     break;
-        case 'flying':   color = 'blue-400';    break;
-        case 'ghost':    color = 'violet-700';  break;
-        case 'grass':    color = 'green-600';   break;
-        case 'ground':   color = 'amber-300';   break;
-        case 'ice':      color = 'emerald-100'; break;
-        case 'normal':   color = 'gray-200';    break;
-        case 'poison':   color = 'purple-800';  break;
-        case 'psychic':  color = 'pink-500';    break;
-        case 'rock':     color = 'yellow-600';  break;
-        case 'steel':    color = 'zinc-500';    break;
-        case 'water':    color = 'sky-500';     break;
-        default:         color = 'gray-200';    break;
-    }
-    console.log(color);
-    return color;
+}
+
+export const colors:propsColors = {
+    bug:      'bg-lime-500',  
+    dark:     'bg-neutral-800 text-gray-200',
+    dragon:   'bg-purple-500 text-gray-200', 
+    electric: 'bg-orange-500 text-gray-200', 
+    fairy:    'bg-pink-300',  
+    fighting: 'bg-amber-500', 
+    fire:     'bg-red-600 text-gray-200',   
+    flying:   'bg-blue-400',  
+    ghost:    'bg-violet-700 text-gray-200', 
+    grass:    'bg-green-600', 
+    ground:   'bg-amber-400', 
+    ice:      'bg-emerald-200',
+    normal:   'bg-gray-400',  
+    poison:   'bg-purple-500 text-gray-200', 
+    psychic:  'bg-pink-500',  
+    rock:     'bg-yellow-600', 
+    steel:    'bg-zinc-500 text-gray-200',  
+    water:    'bg-sky-500',   
 }

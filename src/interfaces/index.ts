@@ -7,3 +7,4 @@ export *  from './table-features-props';
 export *  from './table-abilities-props';
 export *  from './types-props';
 export *  from './stats-props';
+export *  from './table-images-props';

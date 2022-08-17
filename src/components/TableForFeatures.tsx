@@ -7,13 +7,13 @@ export const TableForFeatures = ( { weight, height, baseExperience }:TableForFea
             <caption className='bg-neutral-900 text-slate-100 rounded-t-lg'>Features</caption>
             <thead className="text-xs text-gray-700 uppercase">
                 <tr>
-                    <th scope="col" className="py-3 text-center border bg-slate-300 border-slate-400">
+                    <th scope="col" className="py-3 text-center border bg-indigo-300 border-slate-400">
                         Height
                     </th>
-                    <th scope="col" className="py-3 text-center border bg-slate-300 border-slate-400">
+                    <th scope="col" className="py-3 text-center border bg-indigo-300 border-slate-400">
                         Weight
                     </th>
-                    <th scope="col" className="py-3 text-center border bg-slate-300 border-slate-400">
+                    <th scope="col" className="py-3 text-center border bg-slate-400 border-slate-400">
                         Base Experience
                     </th>
                 </tr>

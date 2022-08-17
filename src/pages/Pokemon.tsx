@@ -8,6 +8,7 @@ export const Pokemon = () => {
 
     return (
         <section className='bg-slate-300 pt-20'>
+            {/* TODO: NAvigation and search input */}
             { isLoading ? <Loading/> : <PokemonData pokemon={ pokemon! }/>}
             <Footer/>
         </section>

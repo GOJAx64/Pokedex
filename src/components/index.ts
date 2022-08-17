@@ -9,3 +9,5 @@ export * from './PokemonData';
 export * from './TableForFeatures';
 export * from './TableForAbilities';
 export * from './Types';
+export * from './Stats';
+export * from './TableForImages';

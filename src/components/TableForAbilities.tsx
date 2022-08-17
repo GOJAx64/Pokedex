@@ -12,7 +12,7 @@ export const TableForAbilities = ( { abilities }:TableForAbilitiesProps ) => {
                     <td className="grid grid-cols-3 py-4 gap-3 border border-slate-400">
                       {
                           abilities.map( (ability) => (
-                              <p key={ ability.ability.name  } className="max-w-2xl text-justify capitalize text-xl font-light text-slate-900 mx-auto md:text-lg"> { ability.ability.name } </p>
+                              <p key={ ability.ability.name  } className="max-w-2xl text-justify capitalize text-base font-light text-slate-900 mx-auto md:text-lg"> { ability.ability.name } </p>
                           ))
                       }
                     </td>

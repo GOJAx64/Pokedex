@@ -2,3 +2,8 @@ export *  from './pokeapi-response-pokemon';
 export *  from './pokeapi-response-results';
 export *  from './card-props';
 export *  from './grid-pokemon';
+export *  from './pokemon-data-props';
+export *  from './table-features-props';
+export *  from './table-abilities-props';
+export *  from './types-props';
+export *  from './stats-props';

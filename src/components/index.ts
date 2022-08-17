@@ -6,3 +6,6 @@ export * from './Nabvar';
 export * from './GridPokemons';
 export * from './Loading';
 export * from './PokemonData';
+export * from './TableForFeatures';
+export * from './TableForAbilities';
+export * from './Types';

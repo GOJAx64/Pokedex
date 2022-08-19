@@ -35,7 +35,7 @@ export const colors:propsColors = {
     ice:      'bg-emerald-200',
     normal:   'bg-gray-400',  
     poison:   'bg-purple-500 text-gray-200', 
-    psychic:  'bg-pink-500',  
+    psychic:  'bg-pink-500 text-gray-200',  
     rock:     'bg-yellow-600', 
     steel:    'bg-zinc-500 text-gray-200',  
     water:    'bg-sky-500',   

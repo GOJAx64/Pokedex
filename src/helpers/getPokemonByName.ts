@@ -6,6 +6,6 @@ export const getPokemonByName = async( name:string ) => {
         return data;
     }
     catch( error ) {
-        console.error(error);
+        console.warn(error);
     }
 };

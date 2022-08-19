@@ -7,9 +7,8 @@ export const Pokemons = () => {
 
   return (
     <section className='pt-20 bg-slate-300'>
-      {/* <InputSearch/> */}
-      { isLoading && <Loading/> }
-      <GridPokemons pokemons={ pokemons }/>
+      <InputSearch/>
+      { isLoading ? <Loading/> : <GridPokemons pokemons={ pokemons }/> }
       <Footer/>
     </section>
   )

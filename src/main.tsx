@@ -4,7 +4,7 @@ import './index.css';
 import { Navigation } from './routes/Navigation';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <Navigation />
-  // </React.StrictMode> 
+  </React.StrictMode> 
 )

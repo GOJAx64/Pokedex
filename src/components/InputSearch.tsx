@@ -16,9 +16,9 @@ export const InputSearch = () => {
 
   return (
     <form onSubmit={ onSearchSubmit }>   
-      <div className="flex justify-center mx-auto mb-1 mt-4">
+      <div className="flex justify-center mx-auto mt-5">
         <div className="w-96 md:w-1/2 ">
-          <div className="input-group  flex flex-row items-stretch w-full mb-4">
+          <div className="input-group  flex flex-row items-stretch w-full">
             <input 
               type="search" 
               className=" flex-auto min-w-0 block w-full px-3 py-2 text-base font-normal text-gray-700 bg-slate-100 bg-clip-padding border border-solid border-neutral-900 rounded-l transition ease-in-out m-0 focus:text-slate-900 focus:bg-white focus:border-red-500 focus:outline-none" 

@@ -41,7 +41,7 @@ export const About = () => {
                             key={1} 
                             name={'Breaking Bad API'} 
                             description={'SPA of Breaking Bad API'} 
-                            linkRepo={'https://github.com/GOJAx64/My-data-structures'} 
+                            linkRepo={'https://github.com/GOJAx64/Breaking-Bad-API'} 
                             img={heisenberg}
                           />
                           <HorizontalCard 

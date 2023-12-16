@@ -1,43 +1,30 @@
 import { useEffect, useState } from 'react';
-import { getAllPokemons, getPokemonByUrl } from '../helpers';
-import { PokeAPIResponsePokemon, Result  } from '../interfaces';
+import { Result } from '../interfaces';
 
-const initialStatePokemons:PokeAPIResponsePokemon[] = []
+const initialStatePokemons:Result[] = []
 
 export const useFetchAllPokemons = () => {
-    const [offset, setOffset] = useState(0);
-    const [pokemons, setPokemons] = useState(initialStatePokemons);
+    const [pokemons, setPokemons] = useState<Result[]>(initialStatePokemons);
     const [isLoading, setIsLoading] = useState(true);
 
-    const getData = async() => {
-        const data = await getAllPokemons( offset );
-        const promises = data?.results.map( async(result:Result) => 
-            await getPokemonByUrl(result.url) 
-        );
-        const pokemons:PokeAPIResponsePokemon[] = await Promise.all(promises);
-        setPokemons(pokemons);
-        setIsLoading(false);
-    }
-
-    const nextPokemons = () => {
-        if( offset >= 1140 ) return;
-        setOffset( (offset) => (offset + 20) );
-    }
-
-    const prevPokemons = () => {
-        if( offset < 20 ) return;
-        setOffset( (offset) => (offset - 20) );
-    }
-
     useEffect(() => {
-        getData();
-    }, [offset]);
+        getPokemons();
+    }, []);
+
+    const getPokemons = async() => {
+        try {
+            const url = 'https://pokeapi.co/api/v2/pokemon?limit=80'; //898
+            const resp = await fetch(url);
+            const { results }:{ results:Result[] } = await resp.json();
+            setPokemons(results);
+            setIsLoading(false);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return {
         pokemons,
         isLoading,
-        offset,
-        nextPokemons,
-        prevPokemons
     }
 }

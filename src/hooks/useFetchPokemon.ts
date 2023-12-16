@@ -1,20 +1,25 @@
 import { useEffect, useState } from 'react';
-import { getPokemonByName } from '../helpers';
 import { PokeAPIResponsePokemon } from '../interfaces';
 
-export const useFetchPokemon = ( name:string ) => {
+export const useFetchPokemon = ( url:string ) => {
     const [pokemon, setPokemon] = useState<PokeAPIResponsePokemon>();
     const [isLoading, setIsLoading] = useState(true);
 
-    const getData = async( name:string ) => {
-        const pokemon = await getPokemonByName( name ); 
-        setPokemon(pokemon);
-        setIsLoading(false);
-    }
-
     useEffect(() => {
-        getData( name );
+        getData( url );
     }, []);
+
+    const getData = async( name:string ) => {
+        try{
+            const response = await fetch(url);
+            const data = await response.json();
+            setPokemon(data);
+            setIsLoading(false);
+        }
+        catch( error ) {
+            console.error(error);
+        }
+    }
 
     return {
         pokemon,

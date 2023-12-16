@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import logo from '../../public/pokeball.png';
 
-export const Nabvar = () => {
+export const Navbar = () => {
     const [toggleMenu, setToggleMenu] = useState(true);
 
     const onClickButton = () => {
@@ -23,7 +22,8 @@ export const Nabvar = () => {
 
             <div id='menuNavbar' className={ `w-full block flex-grow lg:flex lg:items-center lg:w-auto text-center lg:text-right ${ toggleMenu ? 'hidden' : '' }`}>
                 <div className="text-base lg:flex-grow">
-                    <NavLink onClick={ onClickButton } 
+                
+                    {/* <NavLink onClick={ onClickButton } 
                         to="/home" 
                         className={ ({ isActive }) => `${ isActive ? 'text-red-500' : 'text-slate-100 hover:text-red-200'} block mt-4 lg:inline-block lg:mt-0 font-bold mr-4`}>
                         Home
@@ -38,7 +38,7 @@ export const Nabvar = () => {
                         to="/about" 
                         className={ ({ isActive }) => `${ isActive ? 'text-red-500' : 'text-slate-100 hover:text-red-200'} block mt-4 lg:inline-block lg:mt-0 font-bold mr-4`}>
                         About
-                    </NavLink>
+                    </NavLink> */}
                 </div>
             </div>
         </nav>

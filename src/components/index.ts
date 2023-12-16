@@ -1,13 +1,11 @@
-export * from './Card';
+export * from './Navbar';
 export * from './Footer';
-export * from './HorizontalCard';
 export * from './InputSearch';
-export * from './Nabvar';
-export * from './GridPokemons';
 export * from './Loading';
-export * from './PokemonData';
-export * from './TableForFeatures';
-export * from './TableForAbilities';
-export * from './Types';
-export * from './Stats';
-export * from './TableForImages';
+
+export * from './Pokemons';
+export * from './PokemonList';
+export * from './PokemonPreview';
+
+export * from './Aside';
+

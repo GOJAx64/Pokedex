@@ -1,13 +1,13 @@
 import { InputSearch, Loading, PokemonList } from '.';
-import { useFetchAllPokemons } from '../hooks';
+import { useAppContext } from '../hooks';
 
 export const Pokemons = () => {
-  const { pokemons, isLoading } = useFetchAllPokemons();
-
+  const { isLoading } = useAppContext();
+  
   return (
     <section className=' bg-slate-100'>
-      <InputSearch/>
-      { isLoading ? <Loading/> :<PokemonList pokemons={ pokemons }/> }
+      <InputSearch />
+      { isLoading ? <Loading/> : <PokemonList/> }
     </section>
   )
 }

@@ -5,7 +5,7 @@ const initialStatePokemons:Result[] = []
 
 export const useFetchAllPokemons = () => {
     const [pokemons, setPokemons] = useState<Result[]>(initialStatePokemons);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         getPokemons();
@@ -13,7 +13,7 @@ export const useFetchAllPokemons = () => {
 
     const getPokemons = async() => {
         try {
-            const url = 'https://pokeapi.co/api/v2/pokemon?limit=80'; //898
+            const url = 'https://pokeapi.co/api/v2/pokemon?limit=898'; //898
             const resp = await fetch(url);
             const { results }:{ results:Result[] } = await resp.json();
             setPokemons(results);

@@ -1,5 +1,5 @@
-import { colors } from "../helpers";
 import { useFetchPokemon } from "../hooks"
+import { colors } from "../helpers/getColorOfType";
 import { Loading } from "./Loading";
 
 export const PokemonPreview = ( {url}:{ url:string } ) => {

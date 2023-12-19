@@ -1,26 +1,4 @@
-interface propsColors {
-    bug:      string;
-    dark:     string;
-    dragon:   string;
-    electric: string;
-    fairy:    string;
-    fighting: string;
-    fire:     string;
-    flying:   string;
-    ghost:    string;
-    grass:    string;
-    ground:   string;
-    ice:      string;
-    normal:   string;
-    poison:   string;
-    psychic:  string;
-    rock:     string;
-    steel:    string;
-    water:    string;
-
-}
-
-export const colors:propsColors = {
+export const colors = {
     bug:      'bg-lime-500',  
     dark:     'bg-neutral-800 text-gray-200',
     dragon:   'bg-purple-500 text-gray-200', 

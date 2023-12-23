@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { PokemonPreview } from '.';
 import { useAppContext, useIntersectionObserver } from '../hooks';
+import { ModalPokemon } from './ModalPokemon';
 
 export const PokemonList = () => {
   const { pokemonsByName, offset, setOffset } = useAppContext();
@@ -9,11 +10,11 @@ export const PokemonList = () => {
   const isVisible = !!entry?.isIntersecting;
 
   useEffect(() => {
-      if(isVisible) {
-        const maxPokemons = pokemonsByName.length;
-        const newOffset = offset + 20;
-        newOffset > maxPokemons ? setOffset(maxPokemons) : setOffset(newOffset);
-      }
+    const maxPokemons = pokemonsByName.length;
+    if(isVisible && maxPokemons !== 0) {
+      const newOffset = offset + 20;
+      newOffset > maxPokemons ? setOffset(maxPokemons) : setOffset(newOffset);
+    }
   }, [isVisible])
 
   return (
@@ -24,6 +25,7 @@ export const PokemonList = () => {
           )
       }
       <span ref={ targetObserver } ></span>
+      <ModalPokemon/>
     </section>
   )
 }

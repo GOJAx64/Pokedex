@@ -14,7 +14,8 @@ const AppContext = createContext<ContextProps | any>(null); //? Resolve this
 export const AppProvider = ({ children }:propsAppProvider) => {
     const { pokemons, isLoading } = useFetchAllPokemons();
     const [pokemonName, setPokemonName] = useState<string>('');
-    const [offset, setOffset] = useState<number>(30)
+    const [offset, setOffset] = useState<number>(30);
+    const [showModalPokemon, setshowModalPokemon] = useState<boolean>(false);
     
     useEffect(() => {
       setOffset(30)
@@ -23,6 +24,14 @@ export const AppProvider = ({ children }:propsAppProvider) => {
     const pokemonsByName = pokemons.filter( (pokemon) => 
         pokemon.name.includes(pokemonName)
     );
+
+    const showPokemonById = () => {
+        setshowModalPokemon(true);
+    };
+
+    const closePokemonById = () => {
+        setshowModalPokemon(false);
+    };
 
     return (
         <AppContext.Provider
@@ -34,6 +43,10 @@ export const AppProvider = ({ children }:propsAppProvider) => {
                 offset,
                 setOffset,
                 pokemonsByName,
+                showModalPokemon,
+
+                showPokemonById,
+                closePokemonById,
             }}
         >
             { children }

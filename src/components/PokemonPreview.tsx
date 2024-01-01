@@ -4,10 +4,14 @@ import { Loading } from "./Loading";
 
 export const PokemonPreview = ( {url}:{ url:string } ) => {
   const { pokemon, isLoading } = useFetchPokemon(url);
-  const { showPokemonById } = useAppContext();
+  const { showPokemon } = useAppContext();
+
+  const handleClick = () => {
+    showPokemon(pokemon);
+  } 
   
   return (
-    <article onClick={ showPokemonById } className="text-center bg-white rounded-[30px] relative font-semibold capitalize pb-4 shadow-lg shadow-slate-400/10 border-2 border-transparent hover:border-slate-200 cursor-pointer group grid gap-2">
+    <article onClick={ handleClick } className="text-center bg-white rounded-[30px] relative font-semibold capitalize pb-4 shadow-lg shadow-slate-400/10 border-2 border-transparent hover:border-slate-200 cursor-pointer group grid gap-2">
       <header className="h-9">
         <img 
           className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 group-hover:scale-110 transition-transform pixelated"

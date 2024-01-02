@@ -6,24 +6,26 @@ export interface propsAppProvider {
     children: JSX.Element | JSX.Element[]
 }
 
-interface stat {
+interface Stat {
     base_stat : number;
     name      : string;
 }
 
-interface evolution {
-    min_level : number;
-    name      : string;
+export interface Evolution {
+    min_level   : number;
+    name        : string;
+    pokemonInfo? : any;
+    image?       : string;
 }
 
 export interface pokemonDetail{
     abilities   : string[]; 
     description : string;
-    evolutions? : evolution[] ;
+    evolutions? : Evolution[] ;
     height      : number;
     id          : number;
     name        : string;
-    stats       : stat[]; 
+    stats       : Stat[]; 
     types       : string[];
     weight      : number;
 }
